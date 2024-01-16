@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<VersionSuffix>20240115</VersionSuffix>
+		<Description>Liyanjie.Blazor.Extensions</Description>
+		<Copyright>© Liyanjie.net</Copyright>
+		<Authors>liyanjie2048@outlook.com</Authors>
+		<Company>Liyanjie.net</Company>
+		<RepositoryType>Git</RepositoryType>
+		<RepositoryUrl>https://github.com/liyanjie2048/BlazorExtensions</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/liyanjie2048/BlazorExtensions</PackageProjectUrl>
+		<PackageIcon>liyanjie.net.256.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\JsInterop.d.ts" />
+	  <Content Remove="wwwroot\JsInterop.ts" />
+	  <Content Remove="wwwroot\tsconfig.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\liyanjie.net.256.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="wwwroot\JsInterop.d.ts" />
+		<None Include="wwwroot\JsInterop.ts" />
+		<None Include="wwwroot\tsconfig.json" />
+	</ItemGroup>
+
+	<Target Name="MovePackage" AfterTargets="Pack">
+		<Move SourceFiles="$(OutputPath)$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(SolutionPath)\..\dist" />
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+	</ItemGroup>
+
+</Project>

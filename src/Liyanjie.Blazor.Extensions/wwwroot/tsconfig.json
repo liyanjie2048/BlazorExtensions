@@ -1,0 +1,11 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "ES5"
+    }
+}
